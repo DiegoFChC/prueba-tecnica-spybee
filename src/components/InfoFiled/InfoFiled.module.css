@@ -1,0 +1,41 @@
+.InfoField {
+  display: flex;
+  gap: 15px;
+  color: var(--font-color-primary);
+}
+
+.InfoField .content {
+  display: flex;
+  flex-direction: column;
+}
+
+.content h3 {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.content h4 {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.content span {
+  font-size: .9rem;
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.imgField {
+  height: 40px;
+  width: 40px;
+  object-fit: cover;
+}
+
+.imgLoad {
+  display: block;
+  width: 40px;
+  height: 40px;
+  background: var(--bg-secondary);
+}

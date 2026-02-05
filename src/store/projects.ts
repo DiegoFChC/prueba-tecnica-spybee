@@ -14,6 +14,7 @@ type ProjectsStore = {
   changeLimit: (value: number) => void
   setAllProjects: (data: Project[]) => void
   changeProjectsToShow: () => void
+  selectProject: (id: string) => void
 }
 
 export const useProjectsStore = create<ProjectsStore>((set, get) => {
@@ -70,5 +71,12 @@ export const useProjectsStore = create<ProjectsStore>((set, get) => {
 
       set({ projectsToShow: projects, currentProject: projects[0] })
     },
+
+    selectProject: (id: string) => {
+      const { projectsToShow } = get()
+      const selectedProject = projectsToShow.find(project => project._id === id)
+
+      set({ currentProject: selectedProject })
+    }
   }
 })

@@ -14,7 +14,7 @@ export function Pagination() {
   return (
     <div className={styles.Pagination}>
       <div className={styles.pages}>
-        <span>Página {page} de {Math.floor(totalData / limit)}</span>
+        <span>Página {page} de {Math.ceil(totalData / limit)}</span>
 
         <ButtonIcon
           disabled={page - 1 < 1}
@@ -24,7 +24,7 @@ export function Pagination() {
         </ButtonIcon>
 
         <ButtonIcon
-          disabled={page + 1 > Math.floor(totalData / limit)}
+          disabled={page + 1 > Math.ceil(totalData / limit)}
           handleClick={nextPage}
         >
           <Next />

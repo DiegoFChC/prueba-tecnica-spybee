@@ -1,4 +1,4 @@
-import { InfoField } from '../InfoField/InfoField'
+import { StatusField } from '../StatusField/StatusField'
 import styles from './SectionTitle.module.css'
 
 type SectionTittleType = {
@@ -10,7 +10,7 @@ export function SectionTitle({ title, info }: SectionTittleType) {
   return (
     <div className={styles.SectionTitle}>
       <h1>{title}</h1>
-      <InfoField type='general'>{info}</InfoField>
+      <StatusField type='general'>{info}</StatusField>
     </div>
   )
 }
