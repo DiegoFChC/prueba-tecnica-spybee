@@ -10,22 +10,22 @@ type GetProjects = {
 }
 
 export async function getProjects(
-  params: SearchParamsType,
+  params?: SearchParamsType,
 ): Promise<GetProjects> {
   const data = await fetch(URL_DATA)
   const projects: Project[] = await data.json()
 
   // const PROJECTS_COUNT = projects.length
 
-  const { page, limit } = params
-  const start = (Number(page) - 1) * Number(limit)
-  const end = start + Number(limit)
-  const newListProjects = projects.slice(start, end)
+  // const { page, limit } = params
+  // const start = (Number(page) - 1) * Number(limit)
+  // const end = start + Number(limit)
+  // const newListProjects = projects.slice(start, end)
 
   return {
-    projects: newListProjects,
+    projects: projects,
     total: projects.length,
-    page: Number(page),
-    limit: Number(limit)
+    page: 1,
+    limit: 10
   }
 }

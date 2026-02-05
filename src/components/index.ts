@@ -1,2 +1,7 @@
 export * from './DataInitializer/DataInitializer'
 export * from './Icons/Icons'
+export * from './Container/Container'
+export * from './Header/Header'
+export * from './InfoField/InfoField'
+export * from './SectionTittle/SectionTitle'
+export * from './ButtonIcon/ButtonIcon'

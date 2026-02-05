@@ -1,0 +1,21 @@
+.ButtonIcon {
+  width: 30px;
+  height: 30px;
+  background: rgba(255, 255, 255, 0.2);
+  /* color: white; */
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform .3s ease;
+}
+
+.ButtonIcon:hover {
+  transform: scale(1.1)
+}
+
+.ButtonIcon:disabled {
+  background: none;
+  cursor: not-allowed;
+  color: rgba(71, 71, 71, 0.486);
+}
