@@ -1,0 +1,13 @@
+.SectionTitle {
+  width: 100%;
+  padding: 20px 35px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.SectionTitle > h1 {
+  color: var(--font-color-primary);
+  font-weight: 500;
+  font-size: 2.5rem;
+}
