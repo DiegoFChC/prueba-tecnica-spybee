@@ -5,11 +5,12 @@ type ButtonIconProps = {
   children: ReactNode
   handleClick: () => void
   disabled?: boolean
+  fill?: boolean
 }
 
-export function ButtonIcon({ children, handleClick, disabled = false }: ButtonIconProps) {
+export function ButtonIcon({ children, handleClick, disabled = false, fill = false }: ButtonIconProps) {
   return (
-    <button onClick={handleClick} className={styles.ButtonIcon} disabled={disabled}>
+    <button onClick={handleClick} className={`${styles.ButtonIcon} ${fill && styles.fill}`} disabled={disabled}>
       {children}
     </button>
   )

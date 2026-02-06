@@ -2,15 +2,33 @@
   width: 30px;
   height: 30px;
   background: rgba(255, 255, 255, 0.2);
+  color: #383838;
   border: none;
   border-radius: 5px;
   font-size: 1rem;
   cursor: pointer;
   transition: transform .3s ease;
+  position: relative;
+}
+
+.fill {
+  /* border-left: 1px solid #a8a8a8; */
+  background: white;
+  border-radius: 0;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .3s ease;
 }
 
 .ButtonIcon:hover {
   transform: scale(1.1)
+}
+
+.fill:hover {
+  background: rgb(231, 231, 231);
+  transform: none;
 }
 
 .ButtonIcon:disabled {

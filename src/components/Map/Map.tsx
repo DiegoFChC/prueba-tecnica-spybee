@@ -18,7 +18,7 @@ export function Map() {
   const currentProject = useProjectsStore((store) => store.currentProject)
 
   useEffect(() => {
-    if (!mapContainerRef.current) return
+    if (!mapContainerRef.current || !currentProject) return
 
     mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_KEY
     mapRef.current = new mapboxgl.Map({
@@ -41,6 +41,7 @@ export function Map() {
   }, [])
 
   useEffect(() => {
+    if (!currentProject) return
     if (mapRef.current && markerRef.current && currentProject.position) {
       const { lat, lng } = currentProject.position
 

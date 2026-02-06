@@ -106,7 +106,7 @@ export interface User {
 
 export const initialProject: Project = {
   _id: '',
-  title: 'Cargando...',
+  title: 'Sin datos',
   projectPlan: {
     _id: ID.The6385140Fe518625Cb607F288
   },
@@ -120,7 +120,7 @@ export const initialProject: Project = {
   },
   users: [],
   clientData: {
-    title: '',
+    title: 'Sin datos',
     _id: ''
   },
   city: '',

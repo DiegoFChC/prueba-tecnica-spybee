@@ -24,13 +24,16 @@ export function Contianer() {
   const projects = useProjectsStore((store) => store.projectsToShow)
   const currentProject = useProjectsStore((store) => store.currentProject)
   const selectProject = useProjectsStore((store) => store.selectProject)
-  const showMap = useAppStore(store => store.showMap)
+  const showMap = useAppStore((store) => store.showMap)
+  const loading = useAppStore((store) => store.loading)
 
   return (
     <section className={styles.Container}>
       <div className={styles.dataTable}>
         { showMap && <Map /> }
         <GenericTable headers={MAIN_TABLE_HEADERS}>
+          {loading && <tr><td>Cargando datos...</td></tr>}
+          {projects.length === 0 && !loading && <tr><td>No hay datos para mostrar</td></tr>}
           {projects.map((project) => {
             const {
               _id,

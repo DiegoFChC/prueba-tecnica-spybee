@@ -1,4 +1,4 @@
-import { DataInitializer } from '@/components'
+import { Actions, DataInitializer } from '@/components'
 import { Header, Contianer } from '@/components'
 import { SectionTitle } from '@/components/SectionTittle/SectionTitle'
 import { getProjects } from '@/services'
@@ -12,10 +12,9 @@ export default async function Dashboard() {
       <DataInitializer data={projects} />
       <Header />
       <article className={styles.mainPage}>
-        <SectionTitle
-          title='Mis proyectos'
-          info={`${total} Proyectos`}
-        />
+        <SectionTitle title='Mis proyectos' info={`${total} Proyectos`}>
+          <Actions />
+        </SectionTitle>
         <div className={styles.mainContainer}>
           <Contianer />
           {/* <span>Details</span> */}

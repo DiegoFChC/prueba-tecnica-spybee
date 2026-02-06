@@ -1,0 +1,32 @@
+.SearchBar {
+  background: white;
+  outline-color: var(--bg-contrast);
+  color: #e7e7e7;
+  border: 1px solid #e7e7e7;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.SearchBar input {
+  padding: 10px 15px;
+  font-size: 1.2rem;
+  border: none;
+  outline: none;
+}
+
+.SearchBar button {
+  width: 40px;
+  background: transparent;
+  border: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.SearchBar:focus-within {
+  outline: 1px solid var(--bg-contrast);
+}
