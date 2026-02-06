@@ -1,10 +1,10 @@
-import { Project } from '@/types'
+import { initialProject, Project } from '@/types'
 import { create } from 'zustand'
 
 type ProjectsStore = {
   allProjects: Project[]
   projectsToShow: Project[]
-  currentProject: Project | undefined
+  currentProject: Project
   page: number
   limit: number
   totalData: number
@@ -21,7 +21,7 @@ export const useProjectsStore = create<ProjectsStore>((set, get) => {
   return {
     allProjects: [],
     projectsToShow: [],
-    currentProject: undefined,
+    currentProject: initialProject,
     page: 1,
     limit: 10,
     totalData: 0,

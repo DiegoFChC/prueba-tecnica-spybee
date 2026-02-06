@@ -103,3 +103,36 @@ export interface User {
     name:     string;
     lastName: string;
 }
+
+export const initialProject: Project = {
+  _id: '',
+  title: 'Cargando...',
+  projectPlan: {
+    _id: ID.The6385140Fe518625Cb607F288
+  },
+  status: ProjectStatus.Active,
+  img: '',
+  lastVisit: new Date(),
+  position: {
+    _id: '',
+    lat: 0,
+    lng: 0
+  },
+  users: [],
+  clientData: {
+    title: '',
+    _id: ''
+  },
+  city: '',
+  lastUpdated: new Date(),
+  partnerClients: [],
+  companyId: '',
+  address: '',
+  projectClientAdmin: [],
+  projectPlanData: {
+    plan: Plan.Small
+  },
+  createdAt: new Date(),
+  incidents: [],
+  country: ''
+}

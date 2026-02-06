@@ -11,3 +11,9 @@
   font-weight: 500;
   font-size: 2.5rem;
 }
+
+@media (max-width: 500px) {
+  .SectionTitle > h1 {
+    font-size: 1.8rem;
+  }
+}

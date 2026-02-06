@@ -5,10 +5,12 @@ import styles from './Container.module.css'
 import { Pagination } from '../Pagination/Pagination'
 import { GenericTable } from '../GenericTable/GenericTable'
 import { InfoFiled } from '../InfoFiled/InfoFiled'
-import { Item, Plan } from '@/types'
+import { Item } from '@/types'
 import { ClockIcon, RefreshIcon } from '../Icons/Icons'
 import { formatDate, countCoincidences } from '@/utils'
 import { StatusField } from '../StatusField/StatusField'
+import { Map } from '../Map/Map'
+import { useAppStore } from '@/store/app'
 
 const MAIN_TABLE_HEADERS = [
   'Proyecto',
@@ -22,10 +24,12 @@ export function Contianer() {
   const projects = useProjectsStore((store) => store.projectsToShow)
   const currentProject = useProjectsStore((store) => store.currentProject)
   const selectProject = useProjectsStore((store) => store.selectProject)
+  const showMap = useAppStore(store => store.showMap)
 
   return (
     <section className={styles.Container}>
       <div className={styles.dataTable}>
+        { showMap && <Map /> }
         <GenericTable headers={MAIN_TABLE_HEADERS}>
           {projects.map((project) => {
             const {

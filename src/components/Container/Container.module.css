@@ -6,6 +6,7 @@
 
 .flexContent {
   display: flex;
+  align-items: center;
   gap: 30px;
 }
 
@@ -21,4 +22,7 @@
   position: absolute;
   top: 0;
   left: 0;
+}
+
+.dataTable {
 }

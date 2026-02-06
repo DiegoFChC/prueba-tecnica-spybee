@@ -5,12 +5,15 @@
   position: relative;
 }
 
+.tableWrapperMap {
+  max-height: 34dvh;
+}
+
 .GenericTable {
   width: 100%;
-  border: 1px solid rgba(255, 255, 255, .3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-collapse: separate;
   border-spacing: 0;
-  /* border-collapse: collapse; */
   border-radius: 10px;
   flex: 1;
 }
@@ -31,15 +34,34 @@
 
 .GenericTable td {
   padding: 2px 5px;
-  /* border: 1px solid rgba(255, 255, 255, 0.1); */
 }
 
 .GenericTable tbody {
-  height: 200px;
   background: var(--bg-light);
 }
 
 .GenericTable tbody td {
+  width: auto;
+  height: 80px;
   padding: 15px 20px;
   border-bottom: 3px solid var(--bg-secondary-light);
+}
+
+@media (max-width: 500px) {
+  .tableWrapper {
+    max-height: 65dvh;
+  }
+
+  .tableWrapperMap {
+    max-height: 34dvh;
+  }
+
+  .GenericTable thead {
+    height: 30px;
+  }
+
+  .GenericTable thead td {
+    padding: 0 10px;
+    height: 60px;
+  }
 }
