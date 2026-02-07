@@ -1,0 +1,29 @@
+.Header {
+  width: 100%;
+  padding: 15px 30px;
+  color: var(--font-color-secondary);
+  background: var(--bg-primary);
+  display: flex;
+  justify-content: space-between;
+}
+
+.Header .profile {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.profile .dataUser {
+  display: flex;
+  flex-direction: column;
+}
+
+.dataUser > p {
+  font-weight: 400;
+  font-size: .9rem;
+}
+
+.dataUser > span {
+  font-weight: 300;
+  font-size: .8rem;
+}

@@ -1,0 +1,14 @@
+.ActionButton {
+  padding: 10px 15px;
+  color: var(--font-color-primary);
+  background: var(--bg-contrast);
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+}

@@ -1,0 +1,44 @@
+.FloatingList {
+  padding: 10px 5px;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.171);
+  list-style: none;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  z-index: 150;
+}
+
+.FloatingList ul {
+  width: 100%;
+  padding: 10px 20px;
+  background: transparent;
+  color: var(--font-color-primary);
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  text-align: left;
+  font-size: .9rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background .3s ease;
+}
+
+.FloatingList ul:hover {
+  background: rgba(0, 0, 0, 0.048);
+}
+
+/* @media (max-width: 500px) {
+  .FloatingList {
+    right: 0;
+    left: -80px;
+  }
+} */
+
+@media (max-width: 1200px) {
+  .FloatingList {
+    right: auto;
+    left: 0;
+  }
+}

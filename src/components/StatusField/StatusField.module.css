@@ -1,0 +1,12 @@
+.InfoField {
+  padding: 3px 10px;
+  border-radius: 50px;
+  font-size: .85rem;
+  white-space: nowrap;
+}
+
+@media (max-width: 500px) {
+  .InfoField {
+    font-size: .7rem;
+  }
+}

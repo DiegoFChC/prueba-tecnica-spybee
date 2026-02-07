@@ -1,0 +1,76 @@
+.tableWrapper {
+  width: 100%;
+  max-height: 76dvh;
+  overflow: scroll;
+  position: relative;
+}
+
+.tableWrapperMap {
+  max-height: 34dvh;
+}
+
+.GenericTable {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 10px;
+  flex: 1;
+}
+
+.GenericTable thead {
+  height: 40px;
+  background: var(--bg-secondary-light);
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.GenericTable thead td {
+  padding: 0 20px;
+  text-align: left;
+}
+
+.GenericTable td {
+  padding: 2px 5px;
+}
+
+.GenericTable tbody {
+  background: var(--bg-light);
+}
+
+.GenericTable tbody td {
+  width: auto;
+  height: 80px;
+  padding: 15px 20px;
+  border-bottom: 3px solid var(--bg-secondary-light);
+}
+
+.tableWrapper::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.tableWrapper::-webkit-scrollbar-track {
+  background: rgb(241, 241, 241);
+}
+
+@media (max-width: 500px) {
+  .tableWrapper {
+    max-height: 65dvh;
+  }
+
+  .tableWrapperMap {
+    max-height: 34dvh;
+  }
+
+  .GenericTable thead {
+    height: 30px;
+  }
+
+  .GenericTable thead td {
+    padding: 0 10px;
+    height: 60px;
+  }
+}

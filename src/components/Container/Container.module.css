@@ -1,0 +1,26 @@
+.Container {
+  max-height: 100%;
+  /* padding: 10px 30px; */
+  overflow: hidden;
+  flex: 2;
+}
+
+.flexContent {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.projectSelected {
+  position: relative;
+}
+
+.projectSelected::before {
+  content: '';
+  width: 4px;
+  height: 100%;
+  background-color: var(--bg-contrast-secondary);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
