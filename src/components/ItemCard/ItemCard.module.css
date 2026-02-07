@@ -1,0 +1,34 @@
+.ItemCard {
+  min-width: 120px;
+  padding: 15px 10px;
+  background: var(--bg-secondary-light);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.info h4 {
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.info p {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.info span {
+  color: rgb(134, 134, 134);
+  font-size: .8rem;
+  font-weight: 400;
+  white-space: nowrap;
+}
