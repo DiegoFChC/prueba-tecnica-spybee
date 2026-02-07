@@ -1,0 +1,36 @@
+.ProgressCircle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: rgb(185, 185, 185);
+  overflow: hidden;
+  position: relative;
+}
+
+.ProgressCircle::before {
+  content: '';
+  width: 83px;
+  height: 83px;
+  background: var(--bg-secondary-light);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.ProgressCircle p {
+  font-size: 1.5rem;
+  font-weight: 400;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.progress {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #F76668;
+}
