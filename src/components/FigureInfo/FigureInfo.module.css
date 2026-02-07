@@ -1,0 +1,40 @@
+.FigureInfo {
+  width: 26px;
+  height: 15.6px;
+  font-size: .75rem;
+  font-weight: 500;
+  color: var(--font-color-primary);
+  display: grid;
+  place-content: center;
+  background: var(--color-hex);
+  position: relative;
+  cursor: default;
+}
+
+.FigureInfo:before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 13px solid transparent;
+  border-right: 13px solid transparent;
+  border-bottom: 8px solid var(--color-hex);
+}
+
+.FigureInfo:after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 13px solid transparent;
+  border-right: 13px solid transparent;
+  border-top: 8px solid var(--color-hex);
+}
+
+.FigureInfo:hover {
+  transform: scale(1.1);
+}

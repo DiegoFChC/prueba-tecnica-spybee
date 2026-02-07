@@ -11,6 +11,8 @@ import { formatDate, countCoincidences } from '@/utils'
 import { StatusField } from '../StatusField/StatusField'
 import { Map } from '../Map/Map'
 import { useAppStore } from '@/store/app'
+import { FigureInfo } from '../FigureInfo/FigureInfo'
+import { FigureList } from '../FigureList/FigureList'
 
 const MAIN_TABLE_HEADERS = [
   'Proyecto',
@@ -75,7 +77,7 @@ export function Contianer() {
               <td>
                 <StatusField type={status} />
               </td>
-              <td>Users: {users.length}</td>
+              <td><FigureList users={users} /></td>
               <td className={styles.flexContent}>
                 <InfoFiled title={countCoincidences(incidents, Item.Incidents)}>
                   Incidencias
