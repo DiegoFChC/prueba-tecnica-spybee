@@ -1,24 +1,34 @@
+'use client'
+
 import { Actions, DataInitializer, Details } from '@/components'
 import { Header, Contianer } from '@/components'
 import { SectionTitle } from '@/components/SectionTittle/SectionTitle'
-import { getProjects } from '@/services'
 import styles from './page.module.css'
+import { useQueryParams } from '@/hooks/useQueryParams'
+import { useProjects } from '@/hooks/useProjects'
 
-export default async function Dashboard() {
-  const { projects, total } = await getProjects()
+export default function Dashboard() {
+  const { page, limit } = useQueryParams()
+  const { loading, error } = useProjects({ page, limit })
+
+  if (error) return <p>Ha ocurrido un error al cargar los datos</p>
 
   return (
     <main className={styles.Dashboard}>
-      <DataInitializer data={projects} />
+      <DataInitializer params={{ page, limit }} />
       <Header />
       <article className={styles.mainPage}>
-        <SectionTitle title='Mis proyectos' info={`${total} Proyectos`}>
-          <Actions />
-        </SectionTitle>
-        <div className={styles.mainContainer}>
-          <Contianer />
-          <Details />
-        </div>
+        {!loading && (
+          <>
+            <SectionTitle title='Mis proyectos'>
+              <Actions />
+            </SectionTitle>
+            <div className={styles.mainContainer}>
+              <Contianer />
+              <Details />
+            </div>
+          </>
+        )}
       </article>
     </main>
   )

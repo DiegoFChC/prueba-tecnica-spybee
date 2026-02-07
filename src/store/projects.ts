@@ -1,4 +1,5 @@
 import { initialProject, Item, Project } from '@/types'
+import { updateUrlParam } from '@/utils'
 import { create } from 'zustand'
 
 type ProjectsStore = {
@@ -12,6 +13,7 @@ type ProjectsStore = {
   search: string
   nextPage: () => void
   prevPage: () => void
+  setPage: (value: number) => void
   changeLimit: (value: number) => void
   setAllProjects: (data: Project[]) => void
   changeProjectsToShow: () => void
@@ -38,6 +40,7 @@ export const useProjectsStore = create<ProjectsStore>((set, get) => {
       if (nextPage < filteredProjects.length) {
         set({ page: nextPage })
         changeProjectsToShow()
+        updateUrlParam('page', nextPage.toString())
       }
     },
 
@@ -48,13 +51,19 @@ export const useProjectsStore = create<ProjectsStore>((set, get) => {
       if (prevPage >= 1) {
         set({ page: prevPage })
         changeProjectsToShow()
+        updateUrlParam('page', prevPage.toString())
       }
+    },
+
+    setPage: (value: number) => {
+      set({ page: value })
     },
 
     changeLimit: (value: number) => {
       const { changeProjectsToShow } = get()
       set({ limit: value })
       changeProjectsToShow()
+      updateUrlParam('limit', value.toString())
     },
 
     setAllProjects: (data: Project[]) => {
@@ -83,14 +92,10 @@ export const useProjectsStore = create<ProjectsStore>((set, get) => {
 
     selectProject: (id: string) => {
       const { projectsToShow, allProjects } = get()
-      let selectedProject = projectsToShow.find(
-        (project) => project._id === id,
-      )
+      let selectedProject = projectsToShow.find((project) => project._id === id)
 
       if (!selectedProject) {
-        selectedProject = allProjects.find(
-          (project) => project._id === id,
-        )
+        selectedProject = allProjects.find((project) => project._id === id)
       }
 
       set({ currentProject: selectedProject })

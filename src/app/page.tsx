@@ -3,7 +3,7 @@ import Link from 'next/link'
 export default function Home() {
   return (
     <>
-      <Link href={'/dashboard'}>Login</Link>
+      <Link href={'/dashboard?page=1&limit=10'}>Login</Link>
     </>
   )
 }
