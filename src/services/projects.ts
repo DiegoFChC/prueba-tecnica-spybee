@@ -1,4 +1,5 @@
 import type { Project, SearchParamsType } from '@/types'
+import projectsMock from '@/mocks/mock_data.json'
 
 const URL_DATA = 'http://localhost:3000/mock_data.json'
 
@@ -12,8 +13,10 @@ type GetProjects = {
 export async function getProjects(
   params?: SearchParamsType,
 ): Promise<GetProjects> {
-  const data = await fetch(URL_DATA)
-  const projects: Project[] = await data.json()
+  const projects: Project[] = projectsMock as unknown as Project[]
+  // const data = await fetch(URL_DATA)
+  // const projects: Project[] = (await import('@/../public/data/mock_data.json'))
+  //   .default
 
   // const PROJECTS_COUNT = projects.length
 
@@ -26,6 +29,6 @@ export async function getProjects(
     projects: projects,
     total: projects.length,
     page: 1,
-    limit: 10
+    limit: 10,
   }
 }
