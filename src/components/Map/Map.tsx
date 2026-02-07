@@ -13,42 +13,59 @@ const SPEED = 1.2
 
 export function Map() {
   const mapRef = useRef<mapboxgl.Map | null>(null)
-  const markerRef = useRef<mapboxgl.Marker | null>(null)
   const mapContainerRef = useRef<HTMLDivElement | null>(null)
+  const markersRef = useRef<{ [key: string]: mapboxgl.Marker }>({})
 
   const currentProject = useProjectsStore((store) => store.currentProject)
+  const allProjects = useProjectsStore((store) => store.allProjects)
+  const selectProject = useProjectsStore((store) => store.selectProject)
   const showDetails = useAppStore((store) => store.showDetails)
 
+  // Carga incial
   useEffect(() => {
-    if (!mapContainerRef.current || !currentProject) return
+    if (!mapContainerRef.current) return
 
     mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_KEY
     mapRef.current = new mapboxgl.Map({
       container: mapContainerRef.current,
       style: 'mapbox://styles/mapbox/satellite-streets-v12',
-      center: [currentProject.position.lng, currentProject.position.lat],
+      center: currentProject ? [currentProject.position.lng, currentProject.position.lat] : [0, 0],
       zoom: ZOOM,
     })
-
-    markerRef.current = new mapboxgl.Marker({ color: '#F57601' }) // Puedes personalizar el color
-      .setLngLat([
-        currentProject?.position.lng || 0,
-        currentProject?.position.lat || 0,
-      ])
-      .addTo(mapRef.current)
 
     return () => {
       mapRef.current?.remove()
     }
   }, [])
 
+  // Dibujado de marcadores
   useEffect(() => {
-    if (!currentProject) return
+    if (!mapRef.current || !allProjects) return
 
-    if (mapRef.current && markerRef.current && currentProject.position) {
+    Object.values(markersRef.current).forEach(marker => marker.remove())
+    markersRef.current = {}
+
+    allProjects.forEach((project) => {
+      const el = document.createElement('div')
+      el.className = styles.customMarker
+      
+      const marker = new mapboxgl.Marker({ color: '#F57601' })
+        .setLngLat([project.position.lng, project.position.lat])
+        .addTo(mapRef.current!)
+
+      marker.getElement().addEventListener('click', () => {
+        selectProject(project._id)
+      })
+
+      markersRef.current[project._id] = marker
+    })
+  }, [allProjects])
+
+  // Navegación
+  useEffect(() => {
+    if (!mapRef.current || !currentProject) return
+
       const { lat, lng } = currentProject.position
-
-      markerRef.current.setLngLat([lng, lat])
 
       mapRef.current.flyTo({
         center: [lng, lat],
@@ -67,9 +84,9 @@ export function Map() {
         .addTo(mapRef.current)
 
       mapRef.current.resize()
-    }
   }, [currentProject.position.lat, currentProject.position.lng])
 
+  // Cambia el tamaño si se muestra o no los detalles
   useEffect(() => {
     if (mapRef.current) {
       mapRef.current.resize()

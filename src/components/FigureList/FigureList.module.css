@@ -1,0 +1,8 @@
+.FigureList {
+  display: flex;
+  list-style: none;
+}
+
+.FigureList li {
+  margin-left: -4px;
+}
