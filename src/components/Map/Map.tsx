@@ -5,6 +5,7 @@ import mapboxgl from 'mapbox-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import styles from './Map.module.css'
 import { useProjectsStore } from '@/store'
+import { useAppStore } from '@/store/app'
 
 mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_KEY
 const ZOOM = 12
@@ -16,6 +17,7 @@ export function Map() {
   const mapContainerRef = useRef<HTMLDivElement | null>(null)
 
   const currentProject = useProjectsStore((store) => store.currentProject)
+  const showDetails = useAppStore((store) => store.showDetails)
 
   useEffect(() => {
     if (!mapContainerRef.current || !currentProject) return
@@ -42,6 +44,7 @@ export function Map() {
 
   useEffect(() => {
     if (!currentProject) return
+
     if (mapRef.current && markerRef.current && currentProject.position) {
       const { lat, lng } = currentProject.position
 
@@ -62,8 +65,16 @@ export function Map() {
         .setLngLat([lng, lat])
         .setText(currentProject.clientData.title)
         .addTo(mapRef.current)
+
+      mapRef.current.resize()
     }
   }, [currentProject.position.lat, currentProject.position.lng])
+
+  useEffect(() => {
+    if (mapRef.current) {
+      mapRef.current.resize()
+    }
+  }, [showDetails])
 
   return (
     <div className={styles.mapContainer} ref={mapContainerRef}>

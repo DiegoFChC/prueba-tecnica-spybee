@@ -26,59 +26,72 @@ export function Contianer() {
   const selectProject = useProjectsStore((store) => store.selectProject)
   const showMap = useAppStore((store) => store.showMap)
   const loading = useAppStore((store) => store.loading)
+  const setShowDetails = useAppStore((store) => store.setShowDetails)
 
   return (
     <section className={styles.Container}>
-      <div className={styles.dataTable}>
-        { showMap && <Map /> }
-        <GenericTable headers={MAIN_TABLE_HEADERS}>
-          {loading && <tr><td>Cargando datos...</td></tr>}
-          {projects.length === 0 && !loading && <tr><td>No hay datos para mostrar</td></tr>}
-          {projects.map((project) => {
-            const {
-              _id,
-              title,
-              lastVisit,
-              lastUpdated,
-              img,
-              projectPlanData: { plan },
-              status,
-              users,
-              incidents,
-            } = project
-            return (
-              <tr
-                key={_id}
-                onClick={() => selectProject(_id)}
+      {showMap && <Map />}
+      <GenericTable headers={MAIN_TABLE_HEADERS}>
+        {loading && (
+          <tr>
+            <td>Cargando datos...</td>
+          </tr>
+        )}
+        {projects.length === 0 && !loading && (
+          <tr>
+            <td>No hay datos para mostrar</td>
+          </tr>
+        )}
+        {projects.map((project) => {
+          const {
+            _id,
+            title,
+            lastVisit,
+            lastUpdated,
+            img,
+            projectPlanData: { plan },
+            status,
+            users,
+            incidents,
+          } = project
+          return (
+            <tr key={_id} onClick={() => {
+              selectProject(_id)
+              setShowDetails(true)
+            }}>
+              <td
+                className={
+                  _id === currentProject?._id ? styles.projectSelected : ''
+                }
               >
-                <td className={_id === currentProject?._id ? styles.projectSelected : ''}>
-                  <InfoFiled title={title} image={img}>
-                    <ClockIcon /> {formatDate(lastVisit)}
-                    <RefreshIcon /> {formatDate(lastUpdated)}
-                  </InfoFiled>
-                </td>
-                <td><StatusField type={plan} /></td>
-                <td><StatusField type={status} /></td>
-                <td>Users: {users.length}</td>
-                <td className={styles.flexContent}>
-                  <InfoFiled
-                    title={countCoincidences(incidents, Item.Incidents)}
-                  >
-                    Incidencias
-                  </InfoFiled>
-                  <InfoFiled title={countCoincidences(incidents, Item.RFI)}>
-                    RFI
-                  </InfoFiled>
-                  <InfoFiled title={countCoincidences(incidents, Item.Task)}>
-                    Tareas
-                  </InfoFiled>
-                </td>
-              </tr>
-            )
-          })}
-        </GenericTable>
-        <Pagination />
-      </div>
+                <InfoFiled title={title} image={img}>
+                  <ClockIcon /> {formatDate(lastVisit)}
+                  <RefreshIcon /> {formatDate(lastUpdated)}
+                </InfoFiled>
+              </td>
+              <td>
+                <StatusField type={plan} />
+              </td>
+              <td>
+                <StatusField type={status} />
+              </td>
+              <td>Users: {users.length}</td>
+              <td className={styles.flexContent}>
+                <InfoFiled title={countCoincidences(incidents, Item.Incidents)}>
+                  Incidencias
+                </InfoFiled>
+                <InfoFiled title={countCoincidences(incidents, Item.RFI)}>
+                  RFI
+                </InfoFiled>
+                <InfoFiled title={countCoincidences(incidents, Item.Task)}>
+                  Tareas
+                </InfoFiled>
+              </td>
+            </tr>
+          )
+        })}
+      </GenericTable>
+      <Pagination />
     </section>
   )
 }

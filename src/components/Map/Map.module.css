@@ -1,6 +1,6 @@
 .mapContainer {
   height: min(500px, 40dvh);
-  max-height: 20%;
+  /* max-height: 20%; */
   width: 100%;
   background-color: lightgrey;
 }
@@ -28,14 +28,13 @@
   cursor: pointer;
 }
 
-.mapContainer :global(.mapboxgl-popup-content) {
-    background-color: rgba(0, 0, 0, 0.664); /* Color de fondo oscuro */
-    color: #fff;            /* Texto blanco */
+.mapContainer:global(.mapboxgl-popup-content) {
+    background-color: rgba(0, 0, 0, 0.664);
+    color: #fff;
     border-radius: 8px;
     padding: 10px;
 }
 
-/* Para cambiar el color de la "flechita" de abajo del popup */
-.mapContainer :global(.mapboxgl-popup-tip) {
+.mapContainer:global(.mapboxgl-popup-tip) {
     border-top-color: rgba(0, 0, 0, 0.664); 
 }

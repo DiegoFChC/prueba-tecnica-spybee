@@ -47,6 +47,15 @@
   border-bottom: 3px solid var(--bg-secondary-light);
 }
 
+.tableWrapper::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.tableWrapper::-webkit-scrollbar-track {
+  background: rgb(241, 241, 241);
+}
+
 @media (max-width: 500px) {
   .tableWrapper {
     max-height: 65dvh;

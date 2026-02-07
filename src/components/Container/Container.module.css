@@ -1,7 +1,8 @@
 .Container {
   max-height: 100%;
-  padding: 10px 30px;
+  /* padding: 10px 30px; */
   overflow: hidden;
+  flex: 2;
 }
 
 .flexContent {
@@ -22,7 +23,4 @@
   position: absolute;
   top: 0;
   left: 0;
-}
-
-.dataTable {
 }

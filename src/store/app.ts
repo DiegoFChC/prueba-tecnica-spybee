@@ -9,7 +9,7 @@ type AppStore = {
   closeMap: () => void
   setLoading: (value: boolean) => void
   setShowFilters: () => void
-  setShowDetails: () => void
+  setShowDetails: (value: boolean) => void
 }
 
 export const useAppStore = create<AppStore>((set, get) => {
@@ -36,9 +36,8 @@ export const useAppStore = create<AppStore>((set, get) => {
       set({ showFilters: !showFilters })
     },
 
-    setShowDetails: () => {
-      const { showDetails } = get()
-      set({ showDetails: !showDetails })
+    setShowDetails: (value) => {
+      set({ showDetails: value })
     }
   }
 })

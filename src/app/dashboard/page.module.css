@@ -12,8 +12,8 @@
 .mainContainer {
   width: 100%;
   max-height: 85dvh;
+  padding: 10px 30px;
   overflow: auto;
-  /* max-height: 500px; */
-  /* display: flex;
-  flex-wrap: wrap; */
+  display: flex;
+  gap: 30px;
 }
