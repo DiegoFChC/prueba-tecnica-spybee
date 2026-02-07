@@ -82,10 +82,16 @@ export const useProjectsStore = create<ProjectsStore>((set, get) => {
     },
 
     selectProject: (id: string) => {
-      const { projectsToShow } = get()
-      const selectedProject = projectsToShow.find(
+      const { projectsToShow, allProjects } = get()
+      let selectedProject = projectsToShow.find(
         (project) => project._id === id,
       )
+
+      if (!selectedProject) {
+        selectedProject = allProjects.find(
+          (project) => project._id === id,
+        )
+      }
 
       set({ currentProject: selectedProject })
     },
