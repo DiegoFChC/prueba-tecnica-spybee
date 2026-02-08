@@ -1,3 +1,5 @@
+'use client'
+
 import { ReactNode } from 'react'
 import { StatusField } from '../StatusField/StatusField'
 import styles from './SectionTitle.module.css'

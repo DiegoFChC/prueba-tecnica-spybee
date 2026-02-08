@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image'
 import style from './Header.module.css'
 import { UserIcon, DownIcon, LogoutIcon } from '../Icons/Icons'
