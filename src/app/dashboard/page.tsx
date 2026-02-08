@@ -1,7 +1,7 @@
 'use client'
 
 import { Actions, DataInitializer, Details } from '@/components'
-import { Header, Contianer } from '@/components'
+import { Header, Container } from '@/components'
 import { SectionTitle } from '@/components/SectionTittle/SectionTitle'
 import styles from './page.module.css'
 import { useQueryParams } from '@/hooks/useQueryParams'
@@ -24,7 +24,7 @@ export default function Dashboard() {
               <Actions />
             </SectionTitle>
             <div className={styles.mainContainer}>
-              <Contianer />
+              <Container />
               <Details />
             </div>
           </>
