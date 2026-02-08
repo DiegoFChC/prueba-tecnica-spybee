@@ -66,7 +66,7 @@ npm run dev
 │
 ├── 📁 utils/              # Funciones auxiliares y constantes
 │
-└── 📄 middleware.ts       # Guardian de rutas
+└── 📄 proxy.ts             # Guardian de rutas (Antes middleware
 ```
 
 ## Checklist de lo realizado en este proyecto
