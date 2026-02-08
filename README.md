@@ -54,7 +54,6 @@ npm run dev
 ├── 📁 mocks/              # Mock data de proyectos
 │
 ├── 📁 services/           # Lógica de obtención y manipulación de datos
-│   ├── 📄 projects.ts    # 
 │   └── 📄 projects.ts     # Simulación de servicios para obtener proyectos
 │
 ├── 📁 store/              # Estado global con Zustand
