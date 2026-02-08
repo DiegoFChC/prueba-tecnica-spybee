@@ -10,22 +10,31 @@ import { useRouter } from 'next/navigation'
 
 export default function Login() {
   const [error, setError] = useState<string | null>(null)
+  const [loading, setLoading] = useState(false)
   const setUser = useUserStore((store) => store.setUser)
   const router = useRouter()
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    setLoading(true)
+    setError(null)
 
-    const formData = new FormData(e.currentTarget)
-    const response = await loginAction(formData)
+    try {
+      const formData = new FormData(e.currentTarget)
+      const response = await loginAction(formData)
 
-    if (response?.error) {
-      setError(response.error)
-    } else if (response?.user) {
-      setUser(response.user)
-      
-      router.push('/dashboard?page=1&limit=10')
-      router.refresh()
+      if (response?.error) {
+        setError(response.error)
+        setLoading(false)
+      } else if (response?.user) {
+        setUser(response.user)
+
+        router.push('/dashboard?page=1&limit=10')
+        router.refresh()
+      }
+    } catch {
+      setError("Ocurrió un error inesperado")
+      setLoading(false)
     }
   }
 
@@ -56,7 +65,9 @@ export default function Login() {
 
         {error && <span className={styles.errorMessage}>{error}</span>}
 
-        <button type='submit'>Ingresar</button>
+        <button type='submit' disabled={loading}>
+          {loading ? 'Cargando...' : 'Ingresar'}
+        </button>
       </form>
     </section>
   )

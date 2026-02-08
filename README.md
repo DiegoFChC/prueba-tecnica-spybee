@@ -27,7 +27,7 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 npm install
 ```
 
-1. Configura tu Token de Mapbox en el archivo .env:
+3. Configura tu Token de Mapbox en el archivo .env:
 
 ```bash
 NEXT_PUBLIC_MAPBOX_KEY=tu_token_aqui
