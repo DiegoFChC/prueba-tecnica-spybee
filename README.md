@@ -54,7 +54,6 @@ npm run dev
 ├── 📁 mocks/              # Mock data de proyectos
 │
 ├── 📁 services/           # Lógica de obtención y manipulación de datos
-│   ├── 📄 projects.ts    # 
 │   └── 📄 projects.ts     # Simulación de servicios para obtener proyectos
 │
 ├── 📁 store/              # Estado global con Zustand
@@ -72,24 +71,24 @@ npm run dev
 ## Checklist de lo realizado en este proyecto
 
 * Listado de proyectos
-  [x] Nombre
-  [x] Plan
-  [x] Estado
-  [x] Equipo
-  [x] Items por vender (incidentes, RFI, tareas)
-  [x] Paginación (10)
+* [x] Nombre
+* [x] Plan
+* [x] Estado
+* [x] Equipo
+* [x] Items por vender (incidentes, RFI, tareas)
+* [x] Paginación (10)
 * Búsqueda
-  [x] Búsqueda en base a título
+* [x] Búsqueda en base a título
 * Filtros
-  [x] Orden alfabético
-  [x] Cantidad de incidencias
-  [x] Cantidad de RFI
-  [x] Cantidad de tareas
+* [x] Orden alfabético
+* [x] Cantidad de incidencias
+* [x] Cantidad de RFI
+* [x] Cantidad de tareas
 * Mapbox-GL
-  [x] Mostrar mapa con marcadores de las ubicaciones de los proyectos.
-  [x] Mostrar según coordenadas
-  [x] Navegar a ubicación al dar click sobre proyecto
+* [x] Mostrar mapa con marcadores de las ubicaciones de los proyectos.
+* [x] Mostrar según coordenadas
+* [x] Navegar a ubicación al dar click sobre proyecto
 * Autorización
-  [x] Login
-  [x] Verificación de token
-  [x] Logout
+* [x] Login
+* [x] Verificación de token
+* [x] Logout
