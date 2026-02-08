@@ -66,6 +66,10 @@
   background: #fcce39;
 }
 
+.Login button:disabled {
+  cursor: not-allowed;
+}
+
 .errorMessage {
   width: 100%;
   padding: 10px 10px;
