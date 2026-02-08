@@ -1,0 +1,85 @@
+.Login {
+  width: 100%;
+  height: 100dvh;
+  padding: 20px;
+  background: var(--bg-secondary);
+  display: grid;
+  place-content: center;
+}
+
+.Login form {
+  padding: 30px;
+  background: var(--bg-light);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.Login form h1 {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.inputForm {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.inputForm label {
+  font-size: .8rem;
+  font-weight: 300;
+}
+
+.inputForm input {
+  width: 350px;
+  padding: 7px 15px;
+  color: rgb(73, 73, 73);
+  border: 1px solid gray;
+  border-radius: 5px;
+  outline: none;
+}
+
+.inputForm input:focus-within {
+  border: 1px solid var(--bg-contrast);
+}
+
+.Login button {
+  width: 140px;
+  height: 40px;
+  background: var(--bg-contrast);
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgb(41, 41, 41);
+  cursor: pointer;
+  transition: background .3s ease;
+}
+
+.Login button:hover {
+  background: #fcce39;
+}
+
+.errorMessage {
+  width: 100%;
+  padding: 10px 10px;
+  background: rgba(255, 0, 0, 0.048);
+  border-radius: 5px;
+  color: red;
+  font-size: .9rem;
+  font-weight: 500;
+  display: grid;
+  place-content: center;
+}
+
+@media (max-width: 500px) {
+  .inputForm input {
+    width: 100%;
+  }
+}

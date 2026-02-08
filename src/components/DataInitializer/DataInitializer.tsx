@@ -1,17 +1,19 @@
 'use client'
 
+import { useProjects } from '@/hooks/useProjects'
 import { useProjectsStore } from '@/store'
-import { useAppStore } from '@/store/app'
-import { Project } from '@/types'
+import { SearchParamsType } from '@/types'
 import { useEffect } from 'react'
 
-export function DataInitializer({ data }: { data: Project[] }) {
-  const setAllProjects = useProjectsStore(store => store.setAllProjects)
-  const setLoading = useAppStore((store) => store.setLoading)
-  
+export function DataInitializer({ params }: { params: SearchParamsType }) {
+  const setPage = useProjectsStore((store) => store.setPage)
+  const changeLimit = useProjectsStore((store) => store.changeLimit)
+  const fetchProjects = useProjects({ page: params.page, limit: params.limit })
+
   useEffect(() => {
-    setAllProjects(data)
-    setLoading(false)
-  }, [data, setAllProjects, setLoading])
+    setPage(Number(params.page))
+    changeLimit(Number(params.limit))
+  }, [])
+
   return null
 }

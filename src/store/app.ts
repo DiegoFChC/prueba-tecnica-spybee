@@ -15,7 +15,7 @@ type AppStore = {
 export const useAppStore = create<AppStore>((set, get) => {
   return {
     showMap: false,
-    loading: true,
+    loading: false,
     showFilters: false,
     showDetails: false,
 

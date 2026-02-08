@@ -1,23 +1,8 @@
-import type { SearchParamsType } from '@/types'
+export function updateUrlParam(param: string, value: string) {
+  if (typeof window !== 'undefined') {
+    const url = new URL(window.location.href)
+    url.searchParams.set(param, value.toString())
 
-type UpdateUrlParamstype = {
-  params: SearchParamsType
-  reload: boolean
-}
-
-const defaults: SearchParamsType = {
-  page: '1',
-  limit: '10',
-  q: ''
-}
-
-export function updateUrlParams(searchParams: SearchParamsType): UpdateUrlParamstype {
-  const params = {...defaults, ...searchParams }
-
-  const reload = !searchParams.page || !searchParams.limit
-
-  return {
-    params,
-    reload
+    window.history.replaceState(null, '', url.toString())
   }
 }

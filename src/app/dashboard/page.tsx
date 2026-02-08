@@ -1,22 +1,26 @@
 import { Actions, DataInitializer, Details } from '@/components'
-import { Header, Contianer } from '@/components'
+import { Header, Container } from '@/components'
 import { SectionTitle } from '@/components/SectionTittle/SectionTitle'
-import { getProjects } from '@/services'
 import styles from './page.module.css'
+import { SearchParamsType } from '@/types'
 
-export default async function Dashboard() {
-  const { projects, total } = await getProjects()
+type DashboardProps = {
+  searchParams: Promise<SearchParamsType>
+}
+
+export default async function Dashboard({ searchParams }: DashboardProps) {
+  const { page, limit } = await searchParams
 
   return (
     <main className={styles.Dashboard}>
-      <DataInitializer data={projects} />
+      <DataInitializer params={{ page, limit }} />
       <Header />
       <article className={styles.mainPage}>
-        <SectionTitle title='Mis proyectos' info={`${total} Proyectos`}>
+        <SectionTitle title='Mis proyectos'>
           <Actions />
         </SectionTitle>
         <div className={styles.mainContainer}>
-          <Contianer />
+          <Container />
           <Details />
         </div>
       </article>

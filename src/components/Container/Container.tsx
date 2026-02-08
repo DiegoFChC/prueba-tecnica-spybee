@@ -11,7 +11,6 @@ import { formatDate, countCoincidences } from '@/utils'
 import { StatusField } from '../StatusField/StatusField'
 import { Map } from '../Map/Map'
 import { useAppStore } from '@/store/app'
-import { FigureInfo } from '../FigureInfo/FigureInfo'
 import { FigureList } from '../FigureList/FigureList'
 
 const MAIN_TABLE_HEADERS = [
@@ -22,7 +21,7 @@ const MAIN_TABLE_HEADERS = [
   'Items por vender',
 ]
 
-export function Contianer() {
+export function Container() {
   const projects = useProjectsStore((store) => store.projectsToShow)
   const currentProject = useProjectsStore((store) => store.currentProject)
   const selectProject = useProjectsStore((store) => store.selectProject)
